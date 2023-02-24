@@ -29,7 +29,7 @@ If you try to go to the /profile page without authorization, you should be redir
  - Use material.ui for design
  - Use the following stack: react, react-router-dom, react-redux, @reduxjs/toolkit, typescript
 
-
+ ![](screen.png)
 
 
 
