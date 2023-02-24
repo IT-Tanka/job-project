@@ -1,7 +1,7 @@
 
 # 📰  https://it-tanka.github.io/job-project/ 
-# TASK: Implement a web application 
-### that can display the following pages:
+# TASK: 
+### Implement a web application  that can display the following pages:
 
 - / - main, arbitrary content.
 -  /news – page with news. you can use mock data from https://jsonplaceholder.typicode.com/ or similar services. Implement the "upload more" button when clicking on which the posts are loaded, implement the deletion of the news.
