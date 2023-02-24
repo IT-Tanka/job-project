@@ -8,10 +8,10 @@ import MainLayout from '../layouts/MainLayout';
 const MainRoutes: React.FC  = () => {
     return (
     <Routes>
-        <Route path="/" element={<MainLayout/>}>
+        <Route path="/job-project" element={<MainLayout/>}>
             <Route index element={<Home />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/profile" element={<Profile />}/>
+            <Route path="/job-project/news" element={<News />} />
+            <Route path="/job-project/profile" element={<Profile />}/>
             <Route path="*" element={<NotFound />} />
         </ Route> 
     </Routes>

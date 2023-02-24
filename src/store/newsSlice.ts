@@ -16,14 +16,13 @@ export const fetchNews = createAsyncThunk<News[], number, { rejectValue: string,
     'news/fetchNews',
     async function (num, { rejectWithValue, getState }) {
         const news = getState().news.list;
-        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=2&_page=${num}`);
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5&_page=${num}`);
 
         if (!response.ok) {
             return rejectWithValue('Server Error!');
         }
 
         const data = await response.json();
-
         return news.concat(data);
     }
 );

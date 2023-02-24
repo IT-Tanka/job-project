@@ -7,6 +7,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 
 const Auth: React.FC = () => {
+
     const { t } = useTranslation();
     const [isLogin, setIsLogin] = useState(
         localStorage.getItem("enter") === "done"
@@ -18,6 +19,7 @@ const Auth: React.FC = () => {
         setAuthForm(false);
         if (localStorage.getItem("enter") === "done") {
             setIsLogin(true);
+            navigate("/job-project/profile");
         }
     };
     const handleClick = () => {
@@ -25,20 +27,21 @@ const Auth: React.FC = () => {
             localStorage.setItem("enter", "notDone");
             setIsLogin(false);
             setAuthForm(false);
-            navigate(-1);
+            navigate("/job-project");
         } else {
             setAuthForm(true);
         }
     };
     return (
-        <Box 
-            sx={{ 
-                display: "flex", 
-                justifyContent: "flex-end", 
-                width: "100px"
+        <Box
+            sx={{
+                display: "flex",
+                justifyContent: "flex-end",
+                width: "100px",
+                ml: 1
             }}>
             {isLogin && <Avatar sx={{ bgcolor: "yellow" }}>{t("YOU")}</Avatar>}
-            <Button color="inherit" sx={{ ml: 2 }} onClick={handleClick}>
+            <Button color="inherit" sx={{ ml: 1 }} onClick={handleClick}>
                 {!isLogin && <span>{t("LOGIN")}</span>}
                 {isLogin && <span>{t("LOGOUT")}</span>}
             </Button>

@@ -9,7 +9,7 @@ const Profile: React.FC = () => {
     const { t } = useTranslation();
     return (
         <>
-            {(localStorage.getItem('enter') === 'notDone') && <Navigate to="/" />}
+            {(localStorage.getItem('enter') === 'notDone') && <Navigate to="/job-project" />}
             <div>
                 <CssBaseline />
                 <Container maxWidth="lg">
@@ -17,7 +17,8 @@ const Profile: React.FC = () => {
                         sx={{ 
                             bgcolor: '#cfe8fc', 
                             height: '100vh',
-                            p:7
+                            p:7,
+                            mt:2
                         }} 
                     >
                         <Paper 

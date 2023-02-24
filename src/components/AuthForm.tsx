@@ -12,23 +12,25 @@ type AuthProps = {
 
 const AuthForm: React.FC<AuthProps> = ({ handleClose }) => {
     const { t } = useTranslation();
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [wrong, setWrong] = useState(false);
 
     const handleLogin = () => {
-        if (email === "123" && password === "123") {
+        if (username === "admin" && password === "12345") {
             localStorage.setItem("enter", "done");
             handleClose();
         } else setWrong(true);
     };
-    const handleChangeEmail = (e: any) => {
-        setEmail(e.target.value);
+    const handleChangeUsername = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setWrong(false);
+        setUsername(e.target.value);
     };
-    const handleChangePassword = (e: any) => {
+    const handleChangePassword = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setWrong(false);
         setPassword(e.target.value);
     };
-
+    
     return (
         <Box
             sx={{
@@ -48,13 +50,13 @@ const AuthForm: React.FC<AuthProps> = ({ handleClose }) => {
                     margin="dense"
                     required
                     fullWidth
-                    value={email}
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
+                    value={username}
+                    id="username"
+                    label="Username"
+                    name="username"
+                    autoComplete="username"
                     autoFocus
-                    onChange={handleChangeEmail}
+                    onChange={handleChangeUsername}
                 />
                 <TextField
                     variant="outlined"
@@ -68,9 +70,10 @@ const AuthForm: React.FC<AuthProps> = ({ handleClose }) => {
                     autoComplete="current-password"
                     value={password}
                     onChange={handleChangePassword}
+                    
                 />
             </DialogContent>
-            {wrong && <span>Wrong email or password</span>}
+            {wrong && <span>{t("Username or password entered incorrectly")}</span>}
             <DialogActions>
                 <Button color="primary" onClick={handleClose}>
                     {t("CANCEL")}

@@ -15,7 +15,8 @@ const Home: React.FC  = () => {
                         sx={{ 
                             bgcolor: '#cfe8fc', 
                             height: '100vh',
-                            p:7
+                            p:7,
+                            mt:2
                         }} 
                     >
                         <Paper 
