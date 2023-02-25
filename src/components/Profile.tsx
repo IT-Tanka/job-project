@@ -9,7 +9,7 @@ const Profile: React.FC = () => {
     const { t } = useTranslation();
     return (
         <>
-            {(localStorage.getItem('enter') === 'notDone') && <Navigate to="/job-project" />}
+            {(localStorage.getItem('enter') === null  ||  localStorage.getItem('enter') === 'notDone') && <Navigate to="/job-project" />}
             <div>
                 <CssBaseline />
                 <Container maxWidth="lg">
