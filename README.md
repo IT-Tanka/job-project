@@ -1,6 +1,7 @@
 
-# TASK: Implement a web application 
-### that can display the following pages:
+# 📰  https://it-tanka.github.io/job-project/ 
+# TASK: 
+### Implement a web application  that can display the following pages:
 
 - / - main, arbitrary content.
 -  /news – page with news. you can use mock data from https://jsonplaceholder.typicode.com/ or similar services. Implement the "upload more" button when clicking on which the posts are loaded, implement the deletion of the news.
@@ -22,16 +23,22 @@ Username or password entered incorrectly.
 If the correct data is entered, redirect to the /profile page.
 If you try to go to the /profile page without authorization, you should be redirected to the main page.
 
-## APPLICATION REQUIREMENTS:
+### APPLICATION REQUIREMENTS:
  -  Store user authorization information in localStorage. If the user has authorized and reloaded the page, the authorization should not "lose".
  - Everything you think is necessary, wake up in Redux.
  - Use material.ui for design
  - Use the following stack: react, react-router-dom, react-redux, @reduxjs/toolkit, typescript
 
+# IMPLEMENTATION:
+ 
+### The application was made in accordance with the above requirements, it implements all the designated functionality. The data for the NEWS page is taken from the https://jsonplaceholder.typicode.com/ service and forwarded through @reduxjs/toolkit. The application has a responsive design.
 
 
 
+ ![](screen.png)
 
+#
+#
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
