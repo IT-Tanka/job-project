@@ -40,7 +40,7 @@ const Auth: React.FC = () => {
                 width: "100px",
                 ml: 1
             }}>
-            {isLogin && <Avatar sx={{ bgcolor: "yellow" }}>{t("YOU")}</Avatar>}
+            {isLogin && <Avatar sx={{ bgcolor: "yellow" , color:"blue"}}>{t("YOU")}</Avatar>}
             <Button color="inherit" sx={{ ml: 1 }} onClick={handleClick}>
                 {!isLogin && <span>{t("LOGIN")}</span>}
                 {isLogin && <span>{t("LOGOUT")}</span>}
