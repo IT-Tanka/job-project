@@ -1,7 +1,7 @@
 import {NavLink} from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-const MainMenu: React.FC  = () => {
+const MainMenu = () => {
   const {t} = useTranslation();
   return (
     <nav>
@@ -9,7 +9,6 @@ const MainMenu: React.FC  = () => {
         <NavLink to="/job-project/news">{t("NEWS")}</NavLink>
         <NavLink to= "/job-project/profile">{t("PROFILE")}</NavLink> 
     </nav>
-    
   )
 }
 

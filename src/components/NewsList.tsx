@@ -1,9 +1,8 @@
     import { useAppSelector } from '../hook';
     import NewsItem from './NewsItem';
     
-    const NewsList: React.FC = () => {
+    const NewsList = () => {
         const news = useAppSelector(state => state.news.list);
-
     return (
         
         <ul>
