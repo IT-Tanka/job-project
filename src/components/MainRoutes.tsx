@@ -13,15 +13,10 @@ const MainRoutes = () => {
       <Route path="/job-project" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="news" element={<News />} />
-        {useAppSelector((state) => state.auth.isAuthencticated) === true && (
-          <Route path="profile" element={<Profile />} />
-        )}
-        {useAppSelector((state) => state.auth.isAuthencticated) === false && (
-          <Route
-            path="profile"
-            element={<Navigate to={"/job-project"} replace />}
-          />
-        )}
+        { useAppSelector((state) => state.auth.isAuthencticated)
+        ? (<Route path="profile" element={<Profile />} />)
+        : ( <Route  path="profile" element={<Navigate to={"/job-project"} replace />}/>)
+        }
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
