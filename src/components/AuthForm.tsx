@@ -24,7 +24,7 @@ const AuthForm = ({ toggleAuthFormVisibility }: AuthFormProps) => {
   const handleLogin = () => {
     if (username === "admin" && password === "12345") {
       dispatch(setIsAuthenticated(true));
-      navigate("/job-project/profile");
+      navigate("/profile");
       toggleAuthFormVisibility();
     } else setWrong(true);
   };

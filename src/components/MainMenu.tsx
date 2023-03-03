@@ -3,14 +3,14 @@ import { NavLink } from "react-router-dom";
 
 const MainMenu = () => {
   const { t } = useTranslation();
-  
+
   return (
     <nav>
-      <NavLink to="/job-project" end>
+      <NavLink to="." end>
         {t("HOME")}
       </NavLink>
-      <NavLink to="/job-project/news">{t("NEWS")}</NavLink>
-      <NavLink to="/job-project/profile">{t("PROFILE")}</NavLink>
+      <NavLink to="news">{t("NEWS")} </NavLink>
+      <NavLink to="profile">{t("PROFILE")} </NavLink>
     </nav>
   );
 };
