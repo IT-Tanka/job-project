@@ -1,18 +1,12 @@
-import { Navigate } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
-import { useTranslation } from "react-i18next";
 
 const Profile = () => {
   const { t } = useTranslation();
   return (
-    <>
-      {(localStorage.getItem("enter") === null ||
-        localStorage.getItem("enter") === "notDone") && (
-        <Navigate to="/job-project" />
-      )}
       <div>
         <CssBaseline />
         <Container maxWidth="lg">
@@ -40,7 +34,6 @@ const Profile = () => {
           </Box>
         </Container>
       </div>
-    </>
   );
 };
 

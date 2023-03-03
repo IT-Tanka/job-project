@@ -1,10 +1,10 @@
 import MainMenu from "./MainMenu";
+import LangSelect from "./LangSelect";
+import Auth from "./Auth";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
-import LangSelect from "./LangSelect";
-import Auth from "./Auth";
 
 const Header = () => {
   return (

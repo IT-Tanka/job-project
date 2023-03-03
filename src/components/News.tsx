@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "../hook";
 import { fetchNews } from "../store/newsSlice";
 import NewsList from "./NewsList";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import { useTranslation } from "react-i18next";
+
 
 const News = () => {
   const { t } = useTranslation();
@@ -12,10 +13,11 @@ const News = () => {
   const dispatch = useAppDispatch();
   const [page, setPage] = useState(2);
 
-  const handleClick = () => {
+  const addNews = () => {
     setPage(page + 1);
     dispatch(fetchNews(page));
   };
+  
   return (
     <Container maxWidth="lg">
       {loading && <h2>Loading...</h2>}
@@ -30,7 +32,7 @@ const News = () => {
           margin: "auto",
           mb: 3,
         }}
-        onClick={handleClick}
+        onClick={addNews}
       >
         {t("MORE POSTS")}
       </Button>

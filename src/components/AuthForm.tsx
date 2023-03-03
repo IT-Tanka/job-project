@@ -1,16 +1,21 @@
 import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAppDispatch } from "../hook";
+import { setIsAuthenticated } from "../store/authSlice";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import { DialogTitle, DialogContent, DialogActions } from "@mui/material";
-import { useState } from "react";
 
-type AuthProps = {
-  handleClose(): void;
-};
+interface AuthFormProps {
+  toggleAuthFormVisibility(): void;
+}
 
-const AuthForm: React.FC<AuthProps> = ({ handleClose }) => {
+const AuthForm = ({ toggleAuthFormVisibility }: AuthFormProps) => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -18,8 +23,9 @@ const AuthForm: React.FC<AuthProps> = ({ handleClose }) => {
 
   const handleLogin = () => {
     if (username === "admin" && password === "12345") {
-      localStorage.setItem("enter", "done");
-      handleClose();
+      dispatch(setIsAuthenticated(true));
+      navigate("/job-project/profile");
+      toggleAuthFormVisibility();
     } else setWrong(true);
   };
   const handleChangeUsername = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -74,7 +80,7 @@ const AuthForm: React.FC<AuthProps> = ({ handleClose }) => {
       </DialogContent>
       {wrong && <span>{t("Username or password entered incorrectly")}</span>}
       <DialogActions>
-        <Button color="primary" onClick={handleClose}>
+        <Button color="primary" onClick={toggleAuthFormVisibility}>
           {t("CANCEL")}
         </Button>
         <Button onClick={handleLogin}>{t("LOG IN")}</Button>
@@ -82,4 +88,5 @@ const AuthForm: React.FC<AuthProps> = ({ handleClose }) => {
     </Box>
   );
 };
+
 export default AuthForm;

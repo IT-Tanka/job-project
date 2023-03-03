@@ -1,36 +1,29 @@
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../hook";
+import { setIsAuthenticated } from "../store/authSlice";
 import AuthForm from "./AuthForm";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 
 const Auth = () => {
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const [isLogin, setIsLogin] = useState(
-    localStorage.getItem("enter") === "done"
+  const isAuth: boolean = useAppSelector(
+    (state) => state.auth.isAuthencticated
   );
-  const [isAuthForm, setAuthForm] = useState(false);
-  const navigate = useNavigate();
+  const [isAuthForm, setIsAuthForm] = useState(false);
 
-  const handleAuthClose = () => {
-    setAuthForm(false);
-    if (localStorage.getItem("enter") === "done") {
-      setIsLogin(true);
-      navigate("/job-project/profile");
-    }
+  const handleAuth = () => {
+    if (isAuth) {
+      dispatch(setIsAuthenticated(false));
+    } else toggleAuthFormVisibility();
   };
-  const handleClick = () => {
-    if (localStorage.getItem("enter") === "done") {
-      localStorage.setItem("enter", "notDone");
-      setIsLogin(false);
-      setAuthForm(false);
-      navigate("/job-project");
-    } else {
-      setAuthForm(true);
-    }
+  const toggleAuthFormVisibility = () => {
+    setIsAuthForm(!isAuthForm);
   };
+
   return (
     <Box
       sx={{
@@ -40,14 +33,16 @@ const Auth = () => {
         ml: 1,
       }}
     >
-      {isLogin && (
+      {isAuth && (
         <Avatar sx={{ bgcolor: "yellow", color: "blue" }}>{t("YOU")}</Avatar>
       )}
-      <Button color="inherit" sx={{ ml: 1 }} onClick={handleClick}>
-        {!isLogin && <span>{t("LOGIN")}</span>}
-        {isLogin && <span>{t("LOGOUT")}</span>}
+      <Button color="inherit" sx={{ ml: 1 }} onClick={handleAuth}>
+        {!isAuth && <span>{t("LOGIN")}</span>}
+        {isAuth && <span>{t("LOGOUT")}</span>}
       </Button>
-      {isAuthForm && <AuthForm handleClose={handleAuthClose} />}
+      {isAuthForm && (
+        <AuthForm toggleAuthFormVisibility={toggleAuthFormVisibility} />
+      )}
     </Box>
   );
 };

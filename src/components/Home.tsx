@@ -1,11 +1,12 @@
+import { useTranslation } from "react-i18next";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
-import { useTranslation } from "react-i18next";
 
 const Home = () => {
   const { t } = useTranslation();
+
   return (
     <div>
       <CssBaseline />

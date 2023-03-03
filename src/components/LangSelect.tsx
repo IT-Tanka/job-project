@@ -1,6 +1,6 @@
+import { useTranslation } from "react-i18next";
 import { MenuItem } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { useTranslation } from "react-i18next";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import LanguageIcon from "@mui/icons-material/Language";
@@ -10,6 +10,7 @@ const LangSelect = () => {
   const handleChange = (event: SelectChangeEvent) => {
     i18n.changeLanguage(event.target.value);
   };
+
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
       <InputLabel id="demo-select-small">
@@ -28,4 +29,5 @@ const LangSelect = () => {
     </FormControl>
   );
 };
+
 export default LangSelect;
