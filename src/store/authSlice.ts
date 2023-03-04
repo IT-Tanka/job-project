@@ -1,19 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
-  isAuthencticated:
-    localStorage.getItem("isAuthencticated") === "true" ? true : false,
+  isAuthenticated:
+    localStorage.getItem("isAuthenticated") === "true" ? true : false,
 };
 
 const authSlice = createSlice({
-  name: "isAuthencticated",
+  name: "isAuthenticated",
   initialState,
   reducers: {
     setIsAuthenticated(state, action: PayloadAction<boolean>) {
-      state.isAuthencticated = action.payload;
+      state.isAuthenticated = action.payload;
       localStorage.setItem(
-        "isAuthencticated",
-        state.isAuthencticated.toString()
+        "isAuthenticated",
+        state.isAuthenticated.toString()
       );
     },
   },

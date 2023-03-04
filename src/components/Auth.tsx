@@ -11,7 +11,7 @@ const Auth = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const isAuth: boolean = useAppSelector(
-    (state) => state.auth.isAuthencticated
+    (state) => state.auth.isAuthenticated
   );
   const [isAuthForm, setIsAuthForm] = useState(false);
 

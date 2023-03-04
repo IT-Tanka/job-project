@@ -29,7 +29,7 @@ const authedRoutes: IRoute[] = [
 ];
 
 const MainRoutes = () => {
-  const isAuth = useAppSelector( (state) => state.auth.isAuthencticated);
+  const isAuth = useAppSelector( (state) => state.auth.isAuthenticated);
 
   const routes = [
     ...publicRoutes,
